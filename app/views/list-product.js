@@ -5,6 +5,19 @@ import {ProductsListModel} from '../models/product-list';
 export const ListProductsView = Marionette.ItemView.extend({
   template: productsListTemplate,
 
+  ui: {
+    'open': '#product'
+  },
+
+  events: {
+    'click @ui.open': 'onOpenProduct'
+  },
+
+  onOpenProduct: () => {
+    $('.table').hide();
+    $('.item').show();
+  },
+
   initialize: function() {
     this.model = new ProductsListModel();
   }
