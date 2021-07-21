@@ -1,0 +1,23 @@
+.image {
+    width: 380px;
+    overflow: hidden;
+  }
+
+.image__wrap {
+  background-position: 50% 50%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.img {
+  margin: auto;
+  display: block;
+  width: 380px;
+  }
+
+.img:hover {
+    opacity: 0;
+  }
+  

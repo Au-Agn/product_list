@@ -5,19 +5,25 @@ import {ProductModel} from '../models/product';
 export const ItemProductView = Marionette.ItemView.extend({
   template: productTemplate,
 
-  initialize: function() {
-    this.model = new ProductModel();
-  },
-
   ui: {
-    'open': '#product'
+    'zoom': '.image'
   },
 
   events: {
-    'click @ui.open': 'openProduct'
+    'mousemove @ui.zoom': 'onZoomProduct'
   },
 
-  openProduct: () => {
-    console.log('Product is open');
+  onZoomProduct: (e) => {
+    const zoomer = e.currentTarget;
+    let offsetX = e.offsetX;
+    let offsetY = e.offsetY;
+    let x = offsetX / zoomer.offsetWidth * 50;
+    let y = offsetY / zoomer.offsetHeight * 50;
+    zoomer.style.backgroundPosition = x + '% ' + y + '%';
+    console.log(zoomer.style);
+  },
+
+  initialize: function() {
+    this.model = new ProductModel();
   }
 });
