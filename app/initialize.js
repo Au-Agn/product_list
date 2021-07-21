@@ -1,17 +1,21 @@
+import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
 import {AppLayoutView} from './views/layout';
-// import {Router} from './router';
+import {Router} from './router';
+import './styles/imageStyles.css';
 
 const App = Marionette.Application.extend();
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new App();
-  // const router = new Router();
+  app.Router = new Router();
 
   app.addRegions({
     mainRegion: '#app'
   });
   app.mainRegion.show(new AppLayoutView());
-  // router.appRoute('products', () => (console.log(11)));
+  app.on('start', function() {
+    Backbone.history.start();
+  });
   app.start();
 });
