@@ -1,9 +1,9 @@
-.image {
-    width: 380px;
+.wrap {
+    width: 400px;
     overflow: hidden;
-  }
+}
 
-.image__wrap {
+.image {
   background-position: 50% 50%;
   position: relative;
   width: 100%;
@@ -14,7 +14,7 @@
 .img {
   margin: auto;
   display: block;
-  width: 380px;
+  width: 400px;
   }
 
 .img:hover {
