@@ -1,26 +1,26 @@
 import _ from 'underscore';
 import Marionette from 'backbone.marionette';
-import {ListProductsView} from './list-product';
 import {NavigateView} from './navigate';
-import {ItemProductView} from './product';
+import {ProductView} from './product';
+import {ItemProductCollectionView} from './item-product-collection-view';
+import {ItemProductCollection, item} from '../models/item-product';
+import template from '../server/views/partials/layout.hbs';
 
 export const AppLayoutView = Marionette.LayoutView.extend({
-  template: _.template(`
-    <navigation id="menu"></navigation>
-    <article id="content"></article>
-    <article id="item"></article>
-  `),
+  template: template,
 
   regions: {
     menu: '#menu',
-    content: '#content',
-    item: '#item'
+    table: '#table',
+    randomProduct: '#randomProduct'
   },
 
   onRender() {
+    const myItemProductCollection = new ItemProductCollection(item);
+    const myItemProductCollectionView = new ItemProductCollectionView({collection: myItemProductCollection});
     this.getRegion('menu').show(new NavigateView());
-    this.getRegion('content').show(new ListProductsView());
-    this.getRegion('item').show(new ItemProductView());
+    this.getRegion('table').show(myItemProductCollectionView);
+    this.getRegion('randomProduct').show(new ProductView());
   }
 });
 

@@ -2,7 +2,7 @@ import Marionette from 'backbone.marionette';
 import productTemplate from '../server/views/partials/product.hbs';
 import {ProductModel} from '../models/product';
 
-export const ItemProductView = Marionette.ItemView.extend({
+export const ProductView = Marionette.ItemView.extend({
   template: productTemplate,
 
   ui: {
@@ -15,10 +15,10 @@ export const ItemProductView = Marionette.ItemView.extend({
 
   onZoomProduct: (e) => {
     const zoomer = e.currentTarget;
-    let offsetX = e.offsetX;
-    let offsetY = e.offsetY;
-    let x = offsetX / zoomer.offsetWidth * 50;
-    let y = offsetY / zoomer.offsetHeight * 50;
+    const offsetX = e.offsetX;
+    const offsetY = e.offsetY;
+    const x = offsetX / zoomer.offsetWidth * 100;
+    const y = offsetY / zoomer.offsetHeight * 100;
     zoomer.style.backgroundPosition = x + '% ' + y + '%';
   },
 
