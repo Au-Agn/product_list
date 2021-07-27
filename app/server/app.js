@@ -1,7 +1,7 @@
 const express = require('express');
+// const jsonServer = require('json-server');
 const exphbs = require('express-handlebars');
-var fetch = require('node-fetch');
-
+const fetch = require('node-fetch');
 const app = express();
 
 app.engine('hbs', exphbs({
@@ -12,27 +12,54 @@ app.engine('hbs', exphbs({
 app.set('view engine', 'hbs');
 
 const fetchAPI = async () => {
-	const res = await fetch('https://demo3227920.mockable.io/products');
+	const res = await fetch('http://demo5168195.mockable.io/products');
   return res.text();
 };
 
-const addImages = (img, {data}) => {
+const fetchAPIItem = async (id) => {
+  const res = await fetch(`http://demo5168195.mockable.io/products/${id}`);
+  return res.text();
+};
+
+
+const toAddImages = (img, {data}) => {
   return data.map(item => {
     item.img = img;
     return item;
   })
 };
 
-const toAddImages = async(res) => {
+const getResponse = async() => {
   const apiRes = await fetchAPI();
   const data = JSON.parse(apiRes);
   const img = 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8';
-  const result = addImages(img, data);
-  res.render('home', {data: result});
+  const result = toAddImages(img, data);
+  return result;
 };
 
-app.get('/', function(req, res) {
-  toAddImages(res);
+const getResponseItem = async(res, id) => {
+  const apiRes = await fetchAPIItem(id);
+  const data = JSON.parse(apiRes);
+  res.render('product', data);
+};
+
+app.use(express.static('public'));
+
+// app.use('/', jsonServer.router('list.json'));
+
+app.get('/', async function(req, res) {
+  const result = await getResponse();
+  res.render('home', {data: result});
+});
+
+app.get('/productList', async function(req, res) {
+  const result = await getResponse();
+  res.send(JSON.stringify({data: result}));
+});
+
+app.get('/:id', function(req, res) {
+  const id = req.params.id;
+  getResponseItem(res, id);
 });
 
 app.listen(3000, () => {

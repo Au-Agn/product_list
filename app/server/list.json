@@ -1,0 +1,40 @@
+{
+    "data": [
+        {
+            "id": "1",
+            "name": "T-Shirt Dress",
+            "description": "T-Shirt Dress Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "price": {
+                "value": "1000",
+                "currency": "USD"
+            }
+        },
+        {
+            "id": "2",
+            "name": "Flare-Leg Jeans",
+            "description": "Flare-Leg Jeans Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "price": {
+                "value": "2000",
+                "currency": "USD"
+            }
+        },
+        {
+            "id": "3",
+            "name": "Bermuda Shorts",
+            "description": "Bermuda Shorts Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "price": {
+                "value": "1500",
+                "currency": "USD"
+            }
+        },
+        {
+            "id": "4",
+            "name": "Dress",
+            "description": " Dress Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "price": {
+                "value": "2400",
+                "currency": "USD"
+            }
+        }
+        ]
+   }

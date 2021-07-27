@@ -17,6 +17,7 @@ export const AppLayoutView = Marionette.LayoutView.extend({
 
   onRender() {
     const myItemProductCollection = new ItemProductCollection(item);
+    // myItemProductCollection.fetch();
     const myItemProductCollectionView = new ItemProductCollectionView({collection: myItemProductCollection});
     this.getRegion('menu').show(new NavigateView());
     this.getRegion('table').show(myItemProductCollectionView);

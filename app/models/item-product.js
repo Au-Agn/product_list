@@ -26,6 +26,7 @@ export const item = [
 export const ItemPageModel = Backbone.Model.extend({});
 
 export const ItemProductCollection = Backbone.Collection.extend({
-  model: ItemPageModel
+  model: ItemPageModel,
+  url: 'http://localhost:3000/productList'
 });
 
