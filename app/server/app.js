@@ -1,5 +1,4 @@
 const express = require('express');
-// const jsonServer = require('json-server');
 const exphbs = require('express-handlebars');
 const fetch = require('node-fetch');
 const app = express();
@@ -37,15 +36,13 @@ const getResponse = async() => {
   return result;
 };
 
-const getResponseItem = async(res, id) => {
+const getResponseItem = async(id) => {
   const apiRes = await fetchAPIItem(id);
   const data = JSON.parse(apiRes);
-  res.render('product', data);
+  return data;
 };
 
 app.use(express.static('public'));
-
-// app.use('/', jsonServer.router('list.json'));
 
 app.get('/', async function(req, res) {
   const result = await getResponse();
@@ -54,12 +51,13 @@ app.get('/', async function(req, res) {
 
 app.get('/productList', async function(req, res) {
   const result = await getResponse();
-  res.send(JSON.stringify({data: result}));
+  res.send(result);
 });
 
-app.get('/:id', function(req, res) {
+app.get('/:id', async function(req, res) {
   const id = req.params.id;
-  getResponseItem(res, id);
+  const data = await getResponseItem(id);
+  res.render('product', data);
 });
 
 app.listen(3000, () => {

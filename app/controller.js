@@ -5,21 +5,21 @@ const MyController = Marionette.Controller.extend({
     $('.first').addClass('is-active');
     $('.second').removeClass('is-active');
     $('.third').removeClass('is-active');
-    $('.table').show();
+    $('#table').show();
     $('.product').hide();
   },
   onShowProduct: () => {
     $('.first').removeClass('is-active');
     $('.second').addClass('is-active');
     $('.third').removeClass('is-active');
-    $('.table').hide();
+    $('#table').hide();
     $('.product').show();
   },
   onShowAbout: () => {
     $('.first').removeClass('is-active');
     $('.second').removeClass('is-active');
     $('.third').addClass('is-active');
-    $('.table').hide();
+    $('#table').hide();
     $('.product').hide();
   }
 });
