@@ -1,13 +1,15 @@
-<tr data-id="{{id}}">
-    <td>
-        <img src="{{img}}" width="100px" height="100px">
-    </td>
-    <td>
-        <h5>{{name}}</h5>
-        <p>{{description}}</p>
-    </td>
-    <td>
-        <span>{{price.value}}</span>
-        <span>{{price.currency}}</span>
-    </td>
-</tr>
+<a href="http://localhost:3000/{{id}}" target="_blank" data-id="{{id}}">
+    <div class="grid-x grid-padding-x grid-x grid-padding-y">
+        <div class="cell small-4">
+            <img src="{{img}}" width="100px" height="100px">
+        </div>
+        <div class="cell small-6">
+            <h5>{{name}}</h5>
+            <p>{{description}}</p>
+        </div>
+        <div class="cell small-2">
+            <span>{{price.value}}</span>
+            <span>{{price.currency}}</span>
+        </div>
+    </div>
+</a>
