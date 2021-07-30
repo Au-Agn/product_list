@@ -1,9 +1,7 @@
 import Marionette from 'backbone.marionette';
-import productTemplate from '../server/views/partials/product.hbs';
 import {ProductModel} from '../models/product';
 
 export const ProductView = Marionette.ItemView.extend({
-  template: productTemplate,
 
   ui: {
     'zoom': '.image'

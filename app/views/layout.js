@@ -3,10 +3,8 @@ import {NavigateView} from './navigate';
 import {ProductView} from './product';
 import {ItemProductCollectionView} from './item-product-collection-view';
 import {ItemProductCollection, item} from '../models/item-product';
-import template from '../server/views/partials/layout.hbs';
 
 export const AppLayoutView = Marionette.LayoutView.extend({
-  template: template,
 
   regions: {
     menu: '#menu',
