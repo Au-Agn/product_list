@@ -8,7 +8,8 @@
     "url": ""
   },
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --mode development --open",
+    "dev": "webpack && node ./app.js",
     "prebuild": "rm -rf ./public/",
     "build": "webpack",
     "lint": "eslint app",

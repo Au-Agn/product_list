@@ -37,7 +37,7 @@ const webpackCommon = {
   },
   output: {
     filename: 'app.js',
-    path: path.join(__dirname, './server/public'),
+    path: path.join(__dirname, 'public'),
     publicPath: '/'
   },
   plugins: [
@@ -45,7 +45,8 @@ const webpackCommon = {
     new webpack.ProvidePlugin({
       $: 'jquery',
       _: 'underscore'
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
     root: path.join(__dirname, './app')
@@ -61,7 +62,9 @@ switch (process.env.npm_lifecycle_event) {
     module.exports = merge(webpackCommon, {
       devtool: '#inline-source-map',
       devServer: {
-        inline: true
+        port: 3000,
+        inline: true,
+        hot: true
       }
     });
     break;

@@ -1,6 +1,6 @@
 import Backbone from 'backbone';
 import Marionette from 'backbone.marionette';
-import {ZoomerImageView} from './views/zoomerImageView';
+import {ZoomerImageView} from './clientViews/zoomerImageView';
 import './styles/imageStyles.css';
 
 const App = Marionette.Application.extend();
