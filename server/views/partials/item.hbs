@@ -1,0 +1,15 @@
+<a href="http://localhost:3000/{{this.id}}" target="_blank" data-id="{{id}}">
+    <div class="grid-x grid-padding-x grid-x grid-padding-y" id="item">
+        <div class="cell small-4">
+            <img src="{{this.img}}" width="100px" height="100px">
+        </div>
+        <div class="cell small-6">
+            <h5>{{this.name}}</h5>
+            <p>{{this.description}}</p>
+        </div>
+        <div class="cell small-2">
+            <span>{{this.price.value}}</span>
+            <span>{{this.price.currency}}</span>
+        </div>
+    </div>
+</a>

@@ -10,7 +10,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "prebuild": "rm -rf ./public/",
-    "build": "webpack -p",
+    "build": "webpack",
     "lint": "eslint app",
     "test": "echo test"
   },
@@ -38,7 +38,7 @@
     "stylus": "^0.54.5",
     "underscore-template-loader": "^0.7.2",
     "webpack": "^1.12.15",
-    "webpack-dev-server": "^1.16.2",
+    "webpack-dev-server": "^1.16.5",
     "webpack-merge": "^0.15.0"
   }
 }

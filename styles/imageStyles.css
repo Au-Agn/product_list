@@ -9,12 +9,14 @@
   width: 100%;
   overflow: hidden;
   cursor: zoom-in;
+  height: 100%;
 }
 
 .img {
   margin: auto;
   display: block;
   width: 400px;
+  height: 400px;
   }
 
 .img:hover {

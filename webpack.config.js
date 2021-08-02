@@ -8,7 +8,7 @@ const merge = require('webpack-merge');
 
 const webpackCommon = {
   entry: {
-    app: ['./app/initialize']
+    app: ['./initialize']
   },
   module: {
     loaders: [
@@ -37,15 +37,11 @@ const webpackCommon = {
   },
   output: {
     filename: 'app.js',
-    path: path.join(__dirname, './public'),
+    path: path.join(__dirname, './server/public'),
     publicPath: '/'
   },
   plugins: [
     new ExtractTextPlugin('app.css'),
-    new CopyWebpackPlugin([{
-      from: './app/index.html',
-      to: './index.html'
-    }]),
     new webpack.ProvidePlugin({
       $: 'jquery',
       _: 'underscore'

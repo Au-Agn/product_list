@@ -1,7 +1,8 @@
 import Marionette from 'backbone.marionette';
-import {ProductModel} from '../models/product';
+import zoomerImage from '../server/views/partials/zoomer.hbs';
 
-export const ProductView = Marionette.ItemView.extend({
+export const ZoomerImageView = Marionette.ItemView.extend({
+  template: zoomerImage,
 
   ui: {
     'zoom': '.image'
@@ -18,9 +19,5 @@ export const ProductView = Marionette.ItemView.extend({
     const x = offsetX / zoomer.offsetWidth * 100;
     const y = offsetY / zoomer.offsetHeight * 100;
     zoomer.style.backgroundPosition = x + '% ' + y + '%';
-  },
-
-  initialize: function() {
-    this.model = new ProductModel();
   }
 });
