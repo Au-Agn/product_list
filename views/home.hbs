@@ -1,2 +1,6 @@
 {{>navbar}}
+{{#if id}}
+{{>product}}
+{{else}}
 {{>table data=data}}
+{{/if}}
