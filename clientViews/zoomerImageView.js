@@ -5,11 +5,16 @@ export const ZoomerImageView = Marionette.ItemView.extend({
   template: zoomerImage,
 
   ui: {
-    'zoom': '.image'
+    'zoom': '.image',
+    'wrapImage': '.wrap'
   },
 
   events: {
     'mousemove @ui.zoom': 'onZoomProduct'
+  },
+
+  onRender(e) {
+    debugger
   },
 
   onZoomProduct: (e) => {
