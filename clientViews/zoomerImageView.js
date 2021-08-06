@@ -1,8 +1,10 @@
 import Marionette from 'backbone.marionette';
+import Backbone from 'backbone'
 import zoomerImage from '../views/partials/zoomer.hbs';
 
 export const ZoomerImageView = Marionette.ItemView.extend({
   template: zoomerImage,
+  model: new Backbone.Model({img: $('.wrap').attr('data-src')}),
 
   ui: {
     'zoom': '.image',
@@ -14,7 +16,6 @@ export const ZoomerImageView = Marionette.ItemView.extend({
   },
 
   onRender(e) {
-    debugger
   },
 
   onZoomProduct: (e) => {

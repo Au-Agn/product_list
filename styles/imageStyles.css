@@ -3,6 +3,11 @@
     overflow: hidden;
 }
 
+.basket {
+    width:24px;
+    height:24px;
+}
+
 .image {
   background-position: 50% 50%;
   position: relative;
@@ -22,4 +27,3 @@
 .img:hover {
     opacity: 0;
   }
-  

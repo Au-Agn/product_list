@@ -11,7 +11,7 @@ app.engine('hbs', exphbs({
 app.set('view engine', 'hbs');
 
 const fetchAPI = async () => {
-	const res = await fetch('http://demo5168195.mockable.io/products');
+  const res = await fetch('http://demo5168195.mockable.io/products');
   return res.text();
 };
 
@@ -19,7 +19,6 @@ const fetchAPIItem = async (id) => {
   const res = await fetch(`http://demo5168195.mockable.io/products/${id}`);
   return res.text();
 };
-
 
 const toAddImages = (img, {data}) => {
   return data.map(item => {
@@ -49,13 +48,12 @@ const getResponseItem = async(id) => {
 app.use(express.static('public'));
 
 app.get('/', async function(req, res) {
-  const result = await getResponse();
-  res.render('home', {data: result});
+  res.redirect('/products')
 });
 
 app.get('/products', async function(req, res) {
   const result = await getResponse();
-  res.render('home', {data: result});
+  res.render('home', {data: result, length: result.length});
 });
 
 app.get('/random-product', async function(req, res) {
