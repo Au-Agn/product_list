@@ -15,9 +15,6 @@ export const ZoomerImageView = Marionette.ItemView.extend({
     'mousemove @ui.zoom': 'onZoomProduct'
   },
 
-  onRender(e) {
-  },
-
   onZoomProduct: (e) => {
     const zoomer = e.currentTarget;
     const offsetX = e.offsetX;
