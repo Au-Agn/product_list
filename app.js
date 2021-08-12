@@ -1,6 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const fetch = require('node-fetch');
+const {uiSwitches} = require('./switches');
 const app = express();
 
 app.engine('hbs', exphbs({
@@ -62,6 +63,7 @@ app.get('/random-product', async function(req, res) {
   const id = ids[Math.floor(Math.random() * ids.length)];
   if (id) {
     const data = await getResponseItem(id);
+    res.cookie('isZoomerTransform', uiSwitches.isZoomerTransform);
     res.render('home', data);
   }
 });
@@ -73,6 +75,7 @@ app.get('/about', async function(req, res) {
 app.get('/:id', async function(req, res) {
   const id = req.params.id;
   const data = await getResponseItem(id);
+  res.cookie('isZoomerTransform', uiSwitches.isZoomerTransform);
   res.render('product', data);
 });
 
