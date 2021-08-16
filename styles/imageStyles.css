@@ -17,13 +17,32 @@
   height: 100%;
 }
 
-.zoomerImage {
+.zoomerImageWrap {
+  position: relative;
+  width: 100%;
+}
+
+.mainImage {
   margin: auto;
   display: block;
   width: 400px;
   height: 400px;
-  }
+}
+
+.mainImageZoom:hover {
+  opacity: 0;
+}
+
+.zoomerImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: none;
+  width: auto;
+  cursor: zoom-in;
+  opacity: 0;
+}
 
 .zoomerImage:hover {
-    opacity: 0;
-  }
+  opacity: 1;
+}

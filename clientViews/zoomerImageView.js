@@ -6,8 +6,10 @@ export const ZoomerImageView = Marionette.ItemView.extend({
   template: zoomerImage,
 
   ui: {
-    'container': '.zoomerContainer',
-    'image': '.zoomerImage'
+    'container': '.container',
+    'zoomer': '.zoomerImage',
+    'zoomerImageWrap': '.zoomerImageWrap',
+    'image': '.image'
   },
 
   events: {
@@ -16,8 +18,15 @@ export const ZoomerImageView = Marionette.ItemView.extend({
 
   onAttach() {
     const imageSrc = this.$el.parent().data('src');
-    this.ui.container.css('background-image', `url(${imageSrc})`);
+    const isZoomerTransform = Cookies.get('isZoomerTransform');
     this.ui.image.attr('src', imageSrc);
+    if (isZoomerTransform === 'true') {
+      this.ui.container.removeClass('zoomerContainer');
+    } else {
+      this.ui.zoomerImageWrap.remove();
+      this.ui.container.append(`<img src=${imageSrc} class="image mainImage mainImageZoom">`);
+      this.ui.container.css('background-image', `url(${imageSrc})`);
+    }
   },
 
   onZoomProduct(e) {
@@ -38,7 +47,24 @@ export const ZoomerImageView = Marionette.ItemView.extend({
     zoomer.style.backgroundPosition = x + '% ' + y + '%';
   },
 
-  onZoomWithTransform: (e) => {
-    console.log('onZoomWithTransform');
+  onZoomWithTransform(e) {
+    const maxImageWidth = 1230;
+    const maxImageHeight = 1500;
+
+    const originalImage = $(e.currentTarget);
+    const imageOffset = originalImage.offset();
+    const imageSize = {
+      width: originalImage.width(),
+      height: originalImage.height(),
+    };
+
+    const xDiff = e.pageX - imageOffset.left;
+    const yDiff = e.pageY - imageOffset.top;
+    const maxX = maxImageWidth - imageSize.width;
+    const maxY = maxImageHeight - imageSize.height;
+
+    const xPos = Math.max(1, Math.min(maxX, (xDiff * (maxImageWidth / imageSize.width)) - xDiff));
+    const yPos = Math.max(1, Math.min(maxY, (yDiff * (maxImageHeight / imageSize.height)) - yDiff));
+    this.ui.zoomer.css({'transform': `translate( -${xPos}px, -${yPos}px)`});
   }
 });
