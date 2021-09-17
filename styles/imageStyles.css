@@ -45,4 +45,17 @@
 
 .zoomerImage:hover {
   opacity: 1;
+  align-items: flex-start;
+}
+.price {
+  color: red;
+}
+.text {
+  margin-left: 30px;
+}
+.desc {
+  max-width: 600px;
+}
+.table-image {
+  max-width: 200px;
 }

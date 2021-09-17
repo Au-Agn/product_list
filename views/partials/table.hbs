@@ -1,35 +1,51 @@
-<div id="table">
-    <div class="grid-x grid-padding-y grid-padding-x">
-        <div class="cell small-4">
-            <h5>Image</h5>
-        </div>
-        <div class="cell small-6">
-            <h5>Product info</h5>
-        </div>
-        <div class="cell small-2">
-            <h5>Price</h5>
-        </div>
-    </div>
-    <div id="tableBody">
+<div class="grid-x grid-padding-y">
+  <div class="cell">
+    <table class="unstriped hover" id="table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Product info</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
         {{#if data}}
-        {{#each data}}
-        <a href="http://localhost:3000/{{this.id}}" target="_blank" data-id="{{id}}">
-            <div class="grid-x grid-padding-x grid-x grid-padding-y" id="item">
-                <div class="cell small-4">
-                    <img src="{{this.img}}" width="100px" height="100px">
+          {{#each data}}
+            <tr>
+              <td class="table-image">
+                <a
+                  href="http://localhost:3000/{{this.id}}"
+                  target="_blank"
+                  data-id="{{id}}"
+                >
+                  <img src="{{this.img}}" />
+                </a>
+              </td>
+              <td>
+                <div>
+                  <a
+                    href="http://localhost:3000/{{this.id}}"
+                    target="_blank"
+                    data-id="{{id}}"
+                  >
+                    <h2>
+                      {{this.name}}
+                    </h2>
+                  </a>
                 </div>
-                <div class="cell small-6">
-                    <h5>{{this.name}}</h5>
-                    <p>{{this.description}}</p>
+                <div class="desc">
+                  <p>{{this.description}}</p>
                 </div>
-                <div class="cell small-2">
-                    <span>{{this.price.value}}</span>
-                    <span>{{this.price.currency}}</span>
-                </div>
-            </div>
-        </a>
-        {{/each}}
+              </td>
+              <td>
+                <span>{{this.price.value}}</span>&nbsp;
+                <span>{{this.price.currency}}</span>
+              </td>
+            </tr>
+          {{/each}}
         {{/if}}
-    </div>
+      </tbody>
+    </table>
+  </div>
 </div>
 <div id="randomProduct"></div>
