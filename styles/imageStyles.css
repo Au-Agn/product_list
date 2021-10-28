@@ -1,0 +1,61 @@
+.wrap {
+    width: 400px;
+    overflow: hidden;
+}
+
+.basket {
+    width:24px;
+    height:24px;
+}
+
+.zoomerContainer {
+  background-position: 50% 50%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  cursor: zoom-in;
+  height: 100%;
+}
+
+.zoomerImageWrap {
+  position: relative;
+  width: 100%;
+}
+
+.mainImage {
+  margin: auto;
+  display: block;
+  width: 400px;
+  height: 400px;
+}
+
+.mainImageZoom:hover {
+  opacity: 0;
+}
+
+.zoomerImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: none;
+  width: auto;
+  cursor: zoom-in;
+  opacity: 0;
+}
+
+.zoomerImage:hover {
+  opacity: 1;
+  align-items: flex-start;
+}
+.price {
+  color: red;
+}
+.text {
+  margin-left: 30px;
+}
+.desc {
+  max-width: 600px;
+}
+.table-image {
+  max-width: 200px;
+}

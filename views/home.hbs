@@ -1,0 +1,10 @@
+{{>navbar count=length}}
+<div class="grid-container">
+{{#if id}}
+{{>product}}
+{{else}}
+{{>table data=data}}
+{{/if}}
+</div>
+<div id="randomProduct"></div>
+

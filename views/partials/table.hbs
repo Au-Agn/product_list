@@ -1,0 +1,50 @@
+<div class="grid-x grid-padding-y">
+  <div class="cell">
+    <table class="unstriped hover" id="table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Product info</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        {{#if data}}
+          {{#each data}}
+            <tr>
+              <td class="table-image">
+                <a
+                  href="http://localhost:3000/{{this.id}}"
+                  target="_blank"
+                  data-id="{{id}}"
+                >
+                  <img src="{{this.img}}" />
+                </a>
+              </td>
+              <td>
+                <div>
+                  <a
+                    href="http://localhost:3000/{{this.id}}"
+                    target="_blank"
+                    data-id="{{id}}"
+                  >
+                    <h2>
+                      {{this.name}}
+                    </h2>
+                  </a>
+                </div>
+                <div class="desc">
+                  <p>{{this.description}}</p>
+                </div>
+              </td>
+              <td>
+                <span>{{this.price.value}}</span>&nbsp;
+                <span>{{this.price.currency}}</span>
+              </td>
+            </tr>
+          {{/each}}
+        {{/if}}
+      </tbody>
+    </table>
+  </div>
+</div>
